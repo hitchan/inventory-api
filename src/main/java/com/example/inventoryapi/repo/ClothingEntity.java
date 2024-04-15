@@ -3,6 +3,7 @@ package com.example.inventoryapi.repo;
 import com.example.inventoryapi.domain.Clothing;
 import com.example.inventoryapi.domain.Item;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -12,26 +13,17 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder(toBuilder = true)
+@SuperBuilder(toBuilder = true)
 @Getter
 @Setter
 @Table("clothing")
-public class ClothingEntity {
-
-    @Id
-    private UUID id;
-
-    @Column
-    private Item.Status status;
+public class ClothingEntity extends ItemEntity {
 
     @Column
     private String brand;
 
     @Column
     private String color;
-
-    @Column
-    private Item.Condition condition;
 
     @Column
     private Instant created;

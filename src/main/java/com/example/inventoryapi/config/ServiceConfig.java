@@ -2,6 +2,8 @@ package com.example.inventoryapi.config;
 
 import com.example.inventoryapi.repo.ClothingRepository;
 import com.example.inventoryapi.service.ClothingService;
+import com.example.inventoryapi.service.DefaultClothingService;
+import com.example.inventoryapi.service.DefaultItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,7 @@ public class ServiceConfig {
 
     @Bean
     public ClothingService clothingService() {
-        return new ClothingService(repository);
+        return new DefaultClothingService(repository);
     }
 
 }
